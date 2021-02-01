@@ -14,8 +14,37 @@
 
     <link rel="icon" type="image/png" href="favicon.png" />
     <style>
-        .pics {
+        
+
+        /* Large devices (laptops/desktops, 992px and up) */
+        @media only screen and (min-width: 900px) {
+            .pics {
             min-width: 19%;
+            }
+        }
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (max-width: 1200px) {
+            .pics {
+            min-width: 24%;
+         }
+
+        }
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (max-width: 900px) {
+            .pics {
+            min-width: 32%;
+         }
+
+        }
+
+        /* Extra small devices (phones, 600px and down) */
+        @media only screen and (max-width: 600px) {
+            .pics {
+            min-width: 48%;
+            }
+
         }
 
         .container-carousel .carousel {
@@ -27,6 +56,10 @@
             overflow : hidden;
             -moz-overflow:hidden;
             scroll-behavior: smooth;
+        }
+
+        .genre {
+            width: 10.75rem;
         }
 
     </style>
@@ -89,147 +122,145 @@
                     
     </div>
 
-    <section class="text-white">
+    <section class="text-white py-16">
         <!-- catalog -->
-        
-        <div class="pl-16 py-10">
+ 
+
+        <!-- My List -->
+        <div class="pl-4 md:pl-8 lg:pl-12 xl:pl-16 py-4 text-white">
             <p class="py-2 font-semibold text-xl">My List</p>
             <div class="flex items-center relative">
-
                 <!-- arrow left -->
-                <div class="absolute left-0 left-arrow">
+                <div class="absolute left-0 leftArrow1" onClick="leftScroll('.scroll1','.leftArrow1')">
                     <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
                 </div>
+                <!--Container Carousel-->
+                <div class="container-carousel scroll1 overflow-hidden">
+                    <!--Carousel-->
+                    <div class="carousel grid gap-2 space-x-1.5 ">
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/the100.png" alt="" class="rounded"></a>
+                        </div>
 
-                <div class="container-carousel">
-                    <div class="carousel grid gap-2">
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/the100.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/breakingbad.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/breakingbad.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/lupin.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/lupin.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/aliceinborderland.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/aliceinborderland.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/suicidesquad.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/suicidesquad.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/onepunchman.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/onepunchman.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/theendofthefuckingworld.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/theendofthefuckingworld.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/thewalkingdead.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/thewalkingdead.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/hunterxhunter.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/hunterxhunter.png" alt="" class="rounded"></a>
-                            </div>
-
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/rango.png" alt="" class="rounded"></a>
-                            </div>
-                        </div> 
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/rango.png" alt="" class="rounded"></a>
+                        </div>
+                    </div>
                 </div>
-
                 <!-- arrow right -->
-                <div class="absolute right-0 right-arrow">
+                <div class="absolute right-0 rightArrow1" onClick="rightScroll('.scroll1','.rightArrow1')">
                     <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
                 </div>
-
             </div>
+            
+        </div> 
 
-        </div>   
 
-
-
-        <div class="pl-16 py-8">
+        <!-- TV Shows -->
+        <div class="pl-4 md:pl-8 lg:pl-12 xl:pl-16 py-4 text-white">
             <p class="py-2 font-semibold text-xl">TV Shows</p>
             <div class="flex items-center relative">
-
                 <!-- arrow left -->
-                <div class="absolute left-0">
+                <div class="absolute left-0 leftArrow2" onClick="leftScroll('.scroll2','.leftArrow2')">
                     <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
                 </div>
+                <!--Container Carousel-->
+                <div class="container-carousel scroll2 overflow-hidden">
+                    <!--Carousel-->
+                    <div class="carousel grid gap-2 space-x-1.5 ">
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/extracurricular.png" alt="" class="rounded"></a>
+                        </div>
 
-                <div class="container-carousel">
-                    <div class="carousel grid gap-2">
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/extracurricular.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/erased.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/erased.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/enolaholmes.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/enolaholmes.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/orangeisthenewblack.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/orangeisthenewblack.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/thewitcher.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/thewitcher.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/theumbrellaacademy.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/theumbrellaacademy.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/thequeensgambit.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/thequeensgambit.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/outlander.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/outlander.png" alt="" class="rounded"></a>
-                            </div>
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/bettercallsaul.png" alt="" class="rounded"></a>
+                        </div>
 
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/bettercallsaul.png" alt="" class="rounded"></a>
-                            </div>
-
-                            <div class="pics">
-                                <a href="#"><img src="assets/img/disenchantment.png" alt="" class="rounded"></a>
-                            </div>
-                        </div> 
+                        <div class="pics">
+                            <a href="#"><img src="assets/img/disenchantment.png" alt="" class="rounded"></a>
+                        </div>
+                    </div>
                 </div>
-
                 <!-- arrow right -->
-                <div class="absolute right-0">
+                <div class="absolute right-0 rightArrow2" onClick="rightScroll('.scroll2','.rightArrow2')">
                     <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
                 </div>
-
             </div>
+            
+        </div> 
 
-        </div>   
-
-
-        <div class="pl-16 py-8">
-            <p class="py-2 font-semibold text-xl">Trending Nows</p>
+        <!-- Trending Now  -->
+        <div class="pl-4 md:pl-8 lg:pl-12 xl:pl-16 py-4 text-white">
+            <p class="py-2 font-semibold text-xl">Trending Now</p>
             <div class="flex items-center relative">
-
                 <!-- arrow left -->
-                <div class="absolute left-0">
+                <div class="absolute left-0 leftArrow3" onClick="leftScroll('.scroll3','.leftArrow3')">
                     <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
                 </div>
-
-                <div class="container-carousel">
-                    <div class="carousel grid gap-2">
+                <!--Container Carousel-->
+                <div class="container-carousel scroll3 overflow-hidden">
+                    <!--Carousel-->
+                    <div class="carousel grid gap-2 space-x-1.5 ">
                         <div class="pics">
                             <a href="#"><img src="assets/img/riverdale.png" alt="" class="rounded"></a>
                         </div>
@@ -260,28 +291,28 @@
                         <div class="pics">
                             <a href="#"><img src="assets/img/therain.png" alt="" class="rounded"></a>
                         </div>
-                        </div> 
+                    </div>
                 </div>
-
                 <!-- arrow right -->
-                <div class="absolute right-0">
+                <div class="absolute right-0 rightArrow3" onClick="rightScroll('.scroll3','.rightArrow3')">
                     <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
                 </div>
-
             </div>
+        </div>
+  
 
-        </div>   
-
-        <div class="pl-16 py-4 text-white">
+        <!-- Watch It Again -->
+        <div class="pl-4 md:pl-8 lg:pl-12 xl:pl-16 py-4 text-white">
             <p class="py-2 font-semibold text-xl">Watch It Again</p>
             <div class="flex items-center relative">
-
-                <div class="absolute left-0">
-                    <button id="" class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
+                <!-- arrow left -->
+                <div class="absolute left-0 leftArrow4" onClick="leftScroll('.scroll4','.leftArrow4')">
+                    <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
                 </div>
-
-                <div class="container-carousel">
-                    <div class="carousel grid gap-2">
+                <!--Container Carousel-->
+                <div class="container-carousel scroll4 overflow-hidden">
+                    <!--Carousel-->
+                    <div class="carousel grid gap-2 space-x-1.5 ">
                         <div class="pics">
                             <a href="#"><img src="assets/img/graveofthefireflies.png" alt="" class="rounded"></a>
                         </div>
@@ -313,77 +344,74 @@
                             <a href="#"><img src="assets/img/whatthehealth.png" alt="" class="rounded"></a>
                         </div>
                     </div>
-                    
                 </div>
-
-                <div class="absolute right-0">
-                    <button id="" class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
+                <!-- arrow right -->
+                <div class="absolute right-0 rightArrow4" onClick="rightScroll('.scroll4','.rightArrow4')">
+                    <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
                 </div>
             </div>
             
         </div>
 
 
-
-
-        <!-- Tv shows by genre -->
-        <div class="px-16 py-4 text-white">
+        <!-- Tv Shows by Genre -->
+        <div class="px-4 md:px-8 lg:px-12 xl:px-16 py-4 text-white">
             <p class="py-2 font-semibold text-xl">TV Shows by Genre</p>
-            <div class="grid gap-2 grid-cols-7">
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">Action</a>
+            <div class="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7">
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-orange-800 rounded">Action</a>
                     <img src="assets/img/action.png" alt="" class="rounded">
                 </div>
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">Anime</a>
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-pink-600 rounded">Anime</a>
                     <img src="assets/img/anime.png" alt="" class="rounded">
                 </div>
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">Children & Families</a>
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-indigo-900 rounded">Children</a>
                     <img src="assets/img/children.png" alt="" class="rounded">
                 </div>
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">Comedy</a>
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-yellow-600 rounded">Comedy</a>
                     <img src="assets/img/comedy.png" alt="" class="rounded">
                 </div>
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">Docuseries</a>
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-green-600 rounded">Docuseries</a>
                     <img src="assets/img/docuseries.png" alt="" class="rounded">
                 </div>
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">Drama</a>
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-pink-600 rounded">Drama</a>
                     <img src="assets/img/drama.png" alt="" class="rounded">
                 </div>
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">Fantasy</a>
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-red-600 rounded">Fantasy</a>
                     <img src="assets/img/fantasy.png" alt="" class="rounded">
                 </div>
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">French</a>
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-blue-600 rounded">French</a>
                     <img src="assets/img/french.png" alt="" class="rounded">
                 </div>
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">Horror</a>
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-purple-800 rounded">Horror</a>
                     <img src="assets/img/horror.png" alt="" class="rounded">
                 </div>
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">International</a>
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-green-800 rounded">International</a>
                     <img src="assets/img/international.png" alt="" class="rounded">
                 </div>
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">Reality</a>
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-pink-900 rounded">Reality</a>
                     <img src="assets/img/reality.png" alt="" class="rounded">
                 </div>
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">Romance</a>
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-orange-600 rounded">Romance</a>
                     <img src="assets/img/romance.png" alt="" class="rounded">
                 </div>
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">Sci-Fi</a>
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-indigo-600 rounded">Sci-Fi</a>
                     <img src="assets/img/sci-fi.png" alt="" class="rounded">
                 </div>
-                <div>
-                    <a href="#" class="absolute font-semibold px-2 py-5">Thriller</a>
+                <div class="genre">
+                    <a href="#" class="absolute font-semibold px-2 py-5 w-48 h-18 bg-gradient-to-r from-pink-900 rounded">Thriller</a>
                     <img src="assets/img/thriller.png" alt="" class="rounded">
                 </div>
 
@@ -391,21 +419,18 @@
             </div>
         </div>
 
-
-
-
-
-        <!-- netflix originals -->
-        <div class="pl-16 py-4 text-white">
+        <!-- Netflix Originals -->
+        <div class="pl-4 md:pl-8 lg:pl-12 xl:pl-16 py-4 text-white">
             <p class="py-2 font-semibold text-xl">Netflix Originals</p>
             <div class="flex items-center relative">
-
-                <div class="absolute left-0">
-                    <button id="" class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
+                <!-- arrow left -->
+                <div class="absolute left-0 leftArrow5" onClick="leftScroll('.scroll5','.leftArrow5')">
+                    <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
                 </div>
-
-                <div class="container-carousel">
-                    <div class="carousel grid gap-2">
+                <!--Container Carousel-->
+                <div class="container-carousel scroll5 overflow-hidden">
+                    <!--Carousel-->
+                    <div class="carousel grid gap-2 space-x-1.5 ">
                         <div class="pics">
                             <a href="#"><img src="assets/img/n_blackmirror.png" alt="" class="rounded"></a>
                         </div>
@@ -437,77 +462,89 @@
                             <a href="#"><img src="assets/img/n_aliceinborderland.png" alt="" class="rounded"></a>
                         </div>
                     </div>
-                    
                 </div>
-
-                <div class="absolute right-0">
-                    <button id="" class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
+                <!-- arrow right -->
+                <div class="absolute right-0 rightArrow5" onClick="rightScroll('.scroll5','.rightArrow5')">
+                    <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
                 </div>
             </div>
             
         </div>
 
-        <div class="pl-16 py-4 text-white">
+
+        <!-- Top 10 on planet Mars Today -->
+        <div class="pl-4 md:pl-8 lg:pl-12 xl:pl-16 py-4 text-white">
             <p class="py-2 font-semibold text-xl">Top 10 on planet Mars Today</p>
             <div class="flex items-center relative">
-
-                <div class="absolute left-0">
-                    <button id="" class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
+                <!-- arrow left -->
+                <div class="absolute left-0 leftArrow6" onClick="leftScroll('.scroll6','.leftArrow6')">
+                    <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
                 </div>
-
-                <div class="container-carousel">
-                    <div class="carousel grid gap-2">
-                        <div class="pics">
-                            <a href="#"><img src="assets/img/t_lupin.png" alt="" class="rounded w-32 h-44"></a>
+                <!--Container Carousel-->
+                <div class="container-carousel scroll6 overflow-hidden">
+                    <!--Carousel-->
+                    <div class="carousel grid gap-2 space-x-1.5 ">
+                        <div class="flex pics rounded w-32 h-44">
+                            <a href="#"><img src="assets/img/top_1.png" alt="" class=""></a>
+                            <a href="#"><img src="assets/img/t_lupin.png" alt="" class=""></a>
                         </div>
-                        <div class="pics">
-                            <a href="#"><img src="assets/img/t_bridgerton.png" alt="" class="rounded w-32 h-44"></a>
+                        <div class="flex pics rounded w-32 h-44">
+                            <a href="#"><img src="assets/img/top_2.png" alt="" class=""></a>
+                            <a href="#"><img src="assets/img/t_bridgerton.png" alt="" class=""></a>
                         </div>
-                        <div class="pics">
-                            <a href="#"><img src="assets/img/t_thequeensgambit.png" alt="" class="rounded w-32 h-44"></a>
+                        <div class="flex pics rounded w-32 h-44">
+                            <a href="#"><img src="assets/img/top_3.png" alt="" class=""></a>
+                            <a href="#"><img src="assets/img/t_thequeensgambit.png" alt="" class=""></a>
                         </div>
-                        <div class="pics">
-                            <a href="#"><img src="assets/img/t_thewitcher.png" alt="" class="rounded w-32 h-44"></a>
+                        <div class="flex pics rounded w-32 h-44">
+                            <a href="#"><img src="assets/img/top_4.png" alt="" class=""></a>
+                            <a href="#"><img src="assets/img/t_thewitcher.png" alt="" class=""></a>
                         </div>
-                        <div class="pics">
-                            <a href="#"><img src="assets/img/t_narcosmexico.png" alt="" class="rounded w-32 h-44"></a>
+                        <div class="flex pics rounded w-32 h-44">
+                            <a href="#"><img src="assets/img/top_5.png" alt="" class=""></a>
+                            <a href="#"><img src="assets/img/t_narcosmexico.png" alt="" class=""></a>
                         </div>
-                        <div class="pics">
-                            <a href="#"><img src="assets/img/t_moneyheist.png" alt="" class="rounded w-32 h-44"></a>
+                        <div class="flex pics rounded w-32 h-44">
+                            <a href="#"><img src="assets/img/top_6.png" alt="" class=""></a>
+                            <a href="#"><img src="assets/img/t_moneyheist.png" alt="" class=""></a>
                         </div>
-                        <div class="pics">
-                            <a href="#"><img src="assets/img/t_crashlandingonyou.png" alt="" class="rounded w-32 h-44"></a>
+                        <div class="flex pics rounded w-32 h-44">
+                            <a href="#"><img src="assets/img/top_7.png" alt="" class=""></a>
+                            <a href="#"><img src="assets/img/t_crashlandingonyou.png" alt="" class=""></a>
                         </div>
-                        <div class="pics">
-                            <a href="#"><img src="assets/img/t_outsidethewire.png" alt="" class="rounded w-32 h-44"></a>
+                        <div class="flex pics rounded w-32 h-44">
+                            <a href="#"><img src="assets/img/top_8.png" alt="" class=""></a>
+                            <a href="#"><img src="assets/img/t_outsidethewire.png" alt="" class=""></a>
                         </div>
-                        <div class="pics">
-                            <a href="#"><img src="assets/img/t_riverdale.png" alt="" class="rounded w-32 h-44"></a>
+                        <div class="flex pics rounded w-32 h-44">
+                            <a href="#"><img src="assets/img/top_9.png" alt="" class=""></a>
+                            <a href="#"><img src="assets/img/t_riverdale.png" alt="" class=""></a>
                         </div>
-                        <div class="pics">
-                            <a href="#"><img src="assets/img/t_disenchantment.png" alt="" class="rounded w-32 h-44"></a>
+                        <div class="flex pics rounded w-32 h-44">
+                            <a href="#"><img src="assets/img/top_10.png" alt="" class=""></a>
+                            <a href="#"><img src="assets/img/t_disenchantment.png" alt="" class=""></a>
                         </div>
                     </div>
-                    
                 </div>
-
-                <div class="absolute right-0">
-                    <button id="" class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
+                <!-- arrow right -->
+                <div class="absolute right-0 rightArrow6" onClick="rightScroll('.scroll6','.rightArrow6')">
+                    <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
                 </div>
             </div>
             
         </div>
 
-        <div class="pl-16 py-4 text-white">
+        <div class="pl-4 md:pl-8 lg:pl-12 xl:pl-16 py-4 text-white">
             <p class="py-2 font-semibold text-xl">New Release</p>
             <div class="flex items-center relative">
-
-                <div class="absolute left-0">
-                    <button id="" class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
+                <!-- arrow left -->
+                <div class="absolute left-0 leftArrow7" onClick="leftScroll('.scroll7','.leftArrow7')">
+                    <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
                 </div>
-
-                <div class="container-carousel">
-                    <div class="carousel grid gap-2">
+                <!--Container Carousel-->
+                <div class="container-carousel scroll7 overflow-hidden">
+                    <!--Carousel-->
+                    <div class="carousel grid gap-2 space-x-1.5 ">
                         <div class="pics">
                             <a href="#"><img src="assets/img/bridgerton.png" alt="" class="rounded"></a>
                         </div>
@@ -539,26 +576,27 @@
                             <a href="#"><img src="assets/img/emilyinparis.png" alt="" class="rounded"></a>
                         </div>
                     </div>
-                    
                 </div>
-
-                <div class="absolute right-0">
-                    <button id="" class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
+                <!-- arrow right -->
+                <div class="absolute right-0 rightArrow7" onClick="rightScroll('.scroll7','.rightArrow7')">
+                    <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
                 </div>
-
             </div>
+            
         </div>
 
-        <div class="pl-16 py-4 text-white">
+        <!-- International TV Shows -->
+        <div class="pl-4 md:pl-8 lg:pl-12 xl:pl-16 py-4 text-white">
             <p class="py-2 font-semibold text-xl">International TV Shows</p>
             <div class="flex items-center relative">
-
-                <div class="absolute left-0">
-                    <button id="" class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
+                <!-- arrow left -->
+                <div class="absolute left-0 leftArrow8" onClick="leftScroll('.scroll8','.leftArrow8')">
+                    <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
                 </div>
-
-                <div class="container-carousel">
-                    <div class="carousel grid gap-2">
+                <!--Container Carousel-->
+                <div class="container-carousel scroll8 overflow-hidden">
+                    <!--Carousel-->
+                    <div class="carousel grid gap-2 space-x-1.5 ">
                         <div class="pics">
                             <a href="#"><img src="assets/img/therain.png" alt="" class="rounded"></a>
                         </div>
@@ -590,26 +628,28 @@
                             <a href="#"><img src="assets/img/messiah.png" alt="" class="rounded"></a>
                         </div>
                     </div>
-                    
                 </div>
-
-                <div class="absolute right-0">
-                    <button id="" class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
+                <!-- arrow right -->
+                <div class="absolute right-0 rightArrow8" onClick="rightScroll('.scroll8','.rightArrow8')">
+                    <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
                 </div>
             </div>
             
         </div>
 
-        <div class="pl-16 py-4 text-white">
+
+        <!-- Japanese Animation -->
+        <div class="pl-4 md:pl-8 lg:pl-12 xl:pl-16 py-4 text-white">
             <p class="py-2 font-semibold text-xl">Japanese Animation</p>
             <div class="flex items-center relative">
-
-                <div class="absolute left-0">
-                    <button id="" class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
+                <!-- arrow left -->
+                <div class="absolute left-0 leftArrow9" onClick="leftScroll('.scroll9','.leftArrow9')">
+                    <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-left"></i></button>
                 </div>
-
-                <div class="container-carousel">
-                    <div class="carousel grid gap-2">
+                <!--Container Carousel-->
+                <div class="container-carousel scroll9 overflow-hidden">
+                    <!--Carousel-->
+                    <div class="carousel grid gap-2 space-x-1.5 ">
                         <div class="pics">
                             <a href="#"><img src="assets/img/yourname.png" alt="" class="rounded"></a>
                         </div>
@@ -641,11 +681,10 @@
                             <a href="#"><img src="assets/img/jojosbizarreadventure.png" alt="" class="rounded"></a>
                         </div>
                     </div>
-                    
                 </div>
-
-                <div class="absolute right-0">
-                    <button id="" class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
+                <!-- arrow right -->
+                <div class="absolute right-0 rightArrow9" onClick="rightScroll('.scroll9','.rightArrow9')">
+                    <button class="p-4 h-32 hover:bg-black hover:opacity-50 focus:outline-none"><i class="fas fa-angle-right"></i></button>
                 </div>
             </div>
             
@@ -654,25 +693,89 @@
 
     </section>
 
+    <!-- Footer -->
+<footer class="w-4/6 mx-auto py-8 text-gray-600 text-xs">
+    <div class="flex text-3xl space-x-5 py-4">
+        <i class="fab fa-facebook-square"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-youtube"></i>
+    </div>
+    
+  
+    <div class="grid gap-y-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
+        <div class="">
+            <a href="#" class="">Audio and Subtitles</a>
+        </div>
+        <div class="">
+            <a href="#" class="">Audio Description</a>
+        </div>
+        <div class="">
+            <a href="#" class="">Help Center</a>
+        </div>
+        <div class="">
+            <a href="#" class="">Gift Cards</a>
+        </div>
+        <div class="">
+            <a href="#" class="">Media Center</a>
+        </div>
+        <div class="">
+            <a href="#" class="">Investor Relations</a>
+        </div>
+        <div class="">
+            <a href="#" class="">Jobs</a>
+        </div>
+        <div class="">
+            <a href="#" class="">Terms of Use</a>
+        </div>
+        <div class="">
+            <a href="#" class="">Privacy</a>
+        </div>
+        <div class="">
+            <a href="#" class="">Legal Notices</a>
+        </div>
+        <div class="">
+            <a href="#" class="">Cookie Preferences</a>
+        </div>
+        <div class="">
+            <a href="#" class="">Corporate Informations</a>
+        </div>
+        <div class="">
+            <a href="#" class="">Contact Us</a>
+        </div>
+    </div>
+  
+    <div class="py-6 mt-6">
+        <div class="p-2 border inline border-gray-600 cursor-pointer hover:text-white">Service Code</div>
+    </div>
+    <p>&copy;1997-2021 Netflix,Inc. {i-0000000000000000}</p>
+  </footer>
+
     <script>
-        
-        const carousel = document.querySelector('.container-carousel');
+  
+        // right -> Event listener //
 
-        const left = document.querySelector('.left-arrow');
-        const right = document.querySelector('.right-arrow');
+        function rightScroll(scroll, rightArrow) {
+            const carousel = document.querySelector(scroll);
 
-        // // right -> Event listener //
+            const right = document.querySelector(rightArrow);
 
-        right.addEventListener("click", () => {
-            carousel.scrollLeft +=carousel.offsetWidth;   
-        });
+            right.addEventListener("click", () => {
+                carousel.scrollLeft +=carousel.offsetWidth;   
+            });
+        }
 
         // left -> Event listener //
 
-        left.addEventListener("click", () => {
-            carousel.scrollLeft -=carousel.offsetWidth;
-        });
+        function leftScroll(scroll, leftArrow) {
+            const carousel = document.querySelector(scroll);
 
+            const left = document.querySelector(leftArrow);
+
+            left.addEventListener("click", () => {
+                carousel.scrollLeft -=carousel.offsetWidth;
+            });
+        }
 
     </script>
 
