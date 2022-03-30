@@ -1,0 +1,48 @@
+/* ******************************************** */
+/* prefix vendor */
+/* ******************************************** */
+::-webkit-scrollbar {
+    width: 0px;
+    background:transparent; /* make scrollbar transparent */
+}
+
+/* ******************************************** */
+/* header-navbar => header-navbar-black */
+/* ******************************************** */
+.header-navbar-black {
+    background: #141414;
+    position: fixed;
+    z-index:99;
+    width:100%;
+    height:66px;
+    transition: all ease-out 0.5s;
+}
+
+/* ******************************************** */
+/* movie hover */
+/* ******************************************** */
+.movie-container-main .movieImg {
+    position:absolute;
+}
+
+.movie-container-main:hover .movieImg {
+    opacity:0;
+}
+
+
+.movie-container:hover .movieImg {
+    opacity:0;
+    position:absolute;
+}
+
+.movie-container-scale {
+    transition:350ms all;
+}
+
+.movie-container-scale:hover {
+    transform: scale(1.3);
+    z-index:99;
+    overflow:visible;
+    transition-delay: 500ms;
+}
+

@@ -23,8 +23,14 @@
         <!-- favicon -->
         <link rel="icon" type="image/png" href="favicon.png" />
 
+        <!-- path to css file -->
+        <link rel="stylesheet" href="./assets/css/styles.css">
+
         <!-- Tailwind css cdn -->
         <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <!-- Font Awesome icons (free version) -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -46,7 +52,7 @@
 
             <!-- header, navigation -->
             <!-- wallpaper, bg gradient to bottom -->
-            <section class="fixed top-0 w-full bg-gradient-to-b from-black text-white z-50">
+            <section class="header-navbar fixed top-0 w-full bg-gradient-to-b from-black text-white z-50">
 
                 <div class="flex xl:flex-row flex-col items-center py-5 px-12 ml-2">
 
@@ -87,9 +93,9 @@
             <!-- header, wallpaper + biography -->
             <section class="h-screen">
 
-                <div>
+                <div class="movie-container-main">
 
-                    <img src="./assets/img/index/peakyblinders.jpeg" alt="Peaky Blinders" class="w-full h-screen object-cover"/>  
+                    <img src="./assets/img/index/peakyblinders.jpeg" alt="Peaky Blinders" class="movieImg w-full h-screen object-cover"/>  
                     <!-- logo + storyline -->
                     <div class="absolute top-40 px-16">
 
@@ -120,6 +126,8 @@
 
                     </div>
 
+                    <video class="rounded w-full h-screen object-cover cursor-pointer" src="./assets/vid/peakyblinders.mp4" muted onmouseover="this.play();" onmouseout="this.pause();"></video>
+
                 </div>
 
 
@@ -134,106 +142,111 @@
         <!-- ------------------------------------------  -->
         <!-- main -->
         <!-- ------------------------------------------  -->
-        <main class="text-white">
+        <main class="text-white py-8">
 
             <!-- My List -->
-            <p class="py-2 font-semibold text-xl ml-16">My List</p>
+            <section class="overflow-x-hidden overflow-x-scroll">
+                <p class="py-2 font-semibold text-xl ml-16">My List</p>
 
-            <!-- 1st step : overflow hidden -->
-            <!-- 2nd step : overflow scroll -->
-            <section class="carousel overflow-x-hidden overflow-x-scroll scroll-smooth mb-12">
+                <!-- 1st step : overflow hidden -->
+                <!-- 2nd step : overflow scroll -->
+                <nav class="carousel1 flex scroll-smooth" onmouseover="showArrow('.leftArrow1' , '.rightArrow1','.carousel1')" onmouseout="hideArrow('.leftArrow1' , '.rightArrow1','.carousel1')">
 
-                <!-- carousel -->
-                <div class="flex space-x-2">
+                    <!-- carousel -->
+                    <div class="flex space-x-2 h-36 mb-12">
 
-                    <!-- arrow left-->
-                    <div class="absolute left-0 z-30 cursor-pointer leftArrow" onClick="leftScroll('.carousel', '.leftArrow')">
-                        <button class="relative p-4 h-40 mr-2 focus:outline-none"><font size="6"><i class="fas fa-angle-left"></i></font></button>
-                    </div>
-
-                    <div class="relative">
-                        <div class="w-64 h-36 ml-16">
-                            <a href="#"><img src="./assets/img/movie/peakyblinders.png" class="rounded w-64 h-36"/></a>
+                        <!-- ------------------- arrow left + right ------------------- -->
+                        <!-- arrow left -->
+                        <div class="leftArrow1 hidden absolute left-0 z-30 cursor-pointer" onClick="leftScroll('.carousel1', '.leftArrow1')">
+                            <div class="absolute left-0 px-20 py-20 bg-gradient-to-r from-black opacity-60"></div>
+                            <button class="relative p-4 h-36 ml-4 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-left"></i></font></button>
                         </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/myname.png" class="rounded w-64 h-36"/></a>
+                        <!-- arrow right -->
+                        <div class="rightArrow1 hidden absolute right-0 z-30 cursor-pointer" onClick="rightScroll('.carousel1', '.rightArrow1')">
+                            <div class="absolute right-0 px-20 py-20 bg-gradient-to-l from-black opacity-60"></div>
+                            <button class="relative p-4 h-36 mr-2 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-right"></i></font></button>
                         </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/annewithane.png" class="rounded w-64 h-36"/></a>
+
+                        <!-- ------------------- catalog ------------------- -->
+                        <div class="movie-container-scale relative overflow-y-hidden">
+                            <div class="movie-container w-64 h-36 ml-16">
+                                <a href="#">
+                                    <img class="movieImg rounded w-64 h-36" src="./assets/img/movie/peakyblinders.png">
+                                    <video class="absolute w-64 rounded" src="./assets/vid/peakyblinders.mp4" muted onmouseover="this.play();" onmouseout="this.pause();"></video>
+                                </a>
+                                
+                            </div>
                         </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/allofusaredead.png" class="rounded w-64 h-36"/></a>
+
+                        <div class="movie-container-scale relative overflow-y-hidden">
+                            <div class="movie-container w-64 h-36">
+                                <a href="#">
+                                    <img class="movieImg rounded w-64 h-36" src="./assets/img/movie/myname.png">
+                                    <video class="absolute w-64 rounded" src="./assets/vid/myname.mp4" muted onmouseover="this.play();" onmouseout="this.pause();"></video>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/girlfromnowhere.png" class="rounded w-64 h-36"/></a>
+
+                        <div class="movie-container-scale relative overflow-y-hidden">
+                            <div class="movie-container w-64 h-36">
+                                <a href="#">
+                                    <img class="movieImg rounded w-64 h-36" src="./assets/img/movie/annewithane.png">
+                                    <video class="absolute w-64 rounded" src="./assets/vid/annewithane.mp4" muted onmouseover="this.play();" onmouseout="this.pause();"></video>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/myname.png" class="rounded w-64 h-36"/></a>
+
+                        <div class="movie-container-scale relative overflow-y-hidden">
+                            <div class="movie-container w-64 h-36">
+                                <a href="#">
+                                    <img class="movieImg rounded w-64 h-36" src="./assets/img/movie/allofusaredead.png">
+                                    <video class="absolute w-64 rounded" src="./assets/vid/allofusaredead.mp4" muted onmouseover="this.play();" onmouseout="this.pause();"></video>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/annewithane.png" class="rounded w-64 h-36"/></a>
+
+                        <div class="movie-container-scale relative overflow-y-hidden">
+                            <div class="movie-container w-64 h-36">
+                                <a href="#">
+                                    <img class="movieImg rounded w-64 h-36" src="./assets/img/movie/girlfromnowhere.png">
+                                    <video class="absolute w-64 rounded" src="./assets/vid/girlfromnowhere.mp4" muted onmouseover="this.play();" onmouseout="this.pause();"></video>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/allofusaredead.png" class="rounded w-64 h-36"/></a>
+
+                        <div class="relative">
+                            <div class="w-64 h-36">
+                                <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/elchapo.png"></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/girlfromnowhere.png" class="rounded w-64 h-36"/></a>
+        
+                        <div class="relative">
+                            <div class="w-64 h-36">
+                                <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/moneyheist.png"></a>
+                            </div>
                         </div>
+        
+                        <div class="relative">
+                            <div class="w-64 h-36">
+                                <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/squidgame.png"></a>
+                            </div>
+                        </div>
+        
+                        <div class="relative">
+                            <div class="w-64 h-36">
+                                <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/thehookupplan.png"></a>
+                            </div>
+                        </div>
+        
+                        <div class="relative">
+                            <div class="w-64 h-36">
+                                <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/nevertheless.png"></a>
+                            </div>
+                        </div>
+
+
                     </div>
-
-                    <!-- arrow right -->
-                    <div class="absolute right-0 cursor-pointer rightArrow" onClick="rightScroll('.carousel', '.rightArrow')">
-                        <button class="p-4 h-40 mr-2 focus:outline-none"><font size="6"><i class="fas fa-angle-right"></i></font></button>
-                    </div>
-
-                    <script>
-                        // right event
-                        function rightScroll(carousel, rightArrow) {
-
-                            const scroll = document.querySelector(carousel);
-
-                            const right = document.querySelector(rightArrow);
-                            
-                            right.addEventListener("click", () => {
-                                scroll.scrollLeft += scroll.offsetWidth;
-                            })
-
-                        }
-
-                        // left event
-                        function leftScroll(carousel, leftArrow) {
-
-                            const scroll = document.querySelector(carousel);
-
-                            const left = document.querySelector(leftArrow);
-
-                            left.addEventListener("click", () => {
-                                scroll.scrollLeft -= scroll.offsetWidth;
-                            })
-
-                        }
-                        
-                        
-                    </script>
-
-
-                </div>
+                </nav>
 
             </section>
 
@@ -242,46 +255,82 @@
 
             <!-- 1st step : overflow hidden -->
             <!-- 2nd step : overflow scroll -->
-            <section class="carousel overflow-x-hidden overflow-x-scroll scroll-smooth mb-12">
-
+            <section class="carousel2 overflow-x-hidden overflow-x-scroll scroll-smooth mb-12" onmouseover="showArrow('.leftArrow2' , '.rightArrow2','.carousel2')" onmouseout="hideArrow('.leftArrow2' , '.rightArrow2','.carousel2')">
                 
                 <div class="flex space-x-2">
 
-                    <!-- arrow left-->
-                    <div class="absolute left-0 z-30 cursor-pointer leftArrow" onClick="leftScroll('.carousel', '.leftArrow')">
-                        <button class="relative p-4 h-40 mr-2 focus:outline-none"><font size="6"><i class="fas fa-angle-left"></i></font></button>
+                    <!-- ------------------- arrow left + right ------------------- -->
+                    <!-- arrow left -->
+                    <div class="leftArrow2 hidden absolute left-0 z-30 cursor-pointer" onClick="leftScroll('.carousel2', '.leftArrow2')">
+                        <div class="absolute left-0 px-20 py-20 bg-gradient-to-r from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 ml-4 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-left"></i></font></button>
+                    </div>
+                    <!-- arrow right -->
+                    <div class="rightArrow2 hidden absolute right-0 z-30 cursor-pointer" onClick="rightScroll('.carousel2', '.rightArrow2')">
+                        <div class="absolute right-0 px-20 py-20 bg-gradient-to-l from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 mr-2 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-right"></i></font></button>
                     </div>
 
                     <div class="relative">
                         <div class="w-64 h-36 ml-16">
-                            <a href="#"><img src="./assets/img/movie/extracurricular.png" class="rounded w-64 h-36"/></a>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/erased.png" class="rounded w-64 h-36"/></a>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/enolaholmes.png" class="rounded w-64 h-36"/></a>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/orangeisthenewblack.png" class="rounded w-64 h-36"/></a>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/thewitcher.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/extracurricular.png"></a>
                         </div>
                     </div>
 
-                    <!-- arrow right -->
-                    <div class="absolute right-0 cursor-pointer rightArrow" onClick="rightScroll('.carousel', '.rightArrow')">
-                        <button class="p-4 h-40 mr-2 focus:outline-none"><font size="6"><i class="fas fa-angle-right"></i></font></button>
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/erased.png"></a>
+                        </div>
                     </div>
+
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/enolaholmes.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/orangeisthenewblack.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/thewitcher.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/outlander.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64">
+                            <a href="#"><img class="rounded w-64" src="./assets/img/movie/bettercallsaul.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/thequeensgambit.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/thewalkingdead.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/oneofusislying.png"></a>
+                        </div>
+                    </div>
+            
 
                 </div>
 
@@ -292,38 +341,83 @@
 
             <!-- 1st step : overflow hidden -->
             <!-- 2nd step : overflow scroll -->
-            <section class="overflow-x-hidden overflow-x-scroll mb-12">
+            <section class="carousel3 overflow-x-hidden overflow-x-scroll scroll-smooth mb-12" onmouseover="showArrow('.leftArrow3' , '.rightArrow3','.carousel3')" onmouseout="hideArrow('.leftArrow3' , '.rightArrow3','.carousel3')">
 
                 
 
                 <div class="flex space-x-2">
 
+                    <!-- ------------------- arrow left + right ------------------- -->
+                    <!-- arrow left -->
+                    <div class="leftArrow3 hidden absolute left-0 z-30 cursor-pointer" onClick="leftScroll('.carousel3', '.leftArrow3')">
+                        <div class="absolute left-0 px-20 py-20 bg-gradient-to-r from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 ml-4 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-left"></i></font></button>
+                    </div>
+                    <!-- arrow right -->
+                    <div class="rightArrow3 hidden absolute right-0 z-30 cursor-pointer" onClick="rightScroll('.carousel3', '.rightArrow3')">
+                        <div class="absolute right-0 px-20 py-20 bg-gradient-to-l from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 mr-2 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-right"></i></font></button>
+                    </div>
+
                     <div class="relative">
                         <div class="w-64 h-36 ml-16">
-                            <a href="#"><img src="./assets/img/movie/riverdale.png" class="rounded w-64 h-36"/></a>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/narcos.png" class="rounded w-64 h-36"/></a>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/sweethome.png" class="rounded w-64 h-36"/></a>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/assassinationclassroom.png" class="rounded w-64 h-36"/></a>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/alive.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/riverdale.png"></a>
                         </div>
                     </div>
 
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/narcos.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/sweethome.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/assassinationclassroom.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/alive.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/tallgirl2.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/itsokaytonotbeokay.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/daybreak.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/theuncannycounter.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/thetindlerswindler.png"></a>
+                        </div>
+                    </div>
                 </div>
 
             </section>
@@ -333,35 +427,80 @@
 
             <!-- 1st step : overflow hidden -->
             <!-- 2nd step : overflow scroll -->
-            <section class="overflow-x-hidden overflow-x-scroll mb-12">
+            <section class="carousel4 overflow-x-hidden overflow-x-scroll scroll-smooth mb-12" onmouseover="showArrow('.leftArrow4' , '.rightArrow4','.carousel4')" onmouseout="hideArrow('.leftArrow4' , '.rightArrow4','.carousel4')">
 
                 
-
                 <div class="flex space-x-2">
+
+                    <!-- ------------------- arrow left + right ------------------- -->
+                    <!-- arrow left -->
+                    <div class="leftArrow4 hidden absolute left-0 z-30 cursor-pointer" onClick="leftScroll('.carousel4', '.leftArrow4')">
+                        <div class="absolute left-0 px-20 py-20 bg-gradient-to-r from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 ml-4 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-left"></i></font></button>
+                    </div>
+                    <!-- arrow right -->
+                    <div class="rightArrow4 hidden absolute right-0 z-30 cursor-pointer" onClick="rightScroll('.carousel4', '.rightArrow4')">
+                        <div class="absolute right-0 px-20 py-20 bg-gradient-to-l from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 mr-2 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-right"></i></font></button>
+                    </div>
 
                     <div class="relative">
                         <div class="w-64 h-36 ml-16">
-                            <a href="#"><img src="./assets/img/movie/squidgame.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/squidgame.png"></a>
                         </div>
                     </div>
+
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/dontlookup.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/dontlookup.png"></a>
                         </div>
                     </div>
+
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/blackmirror.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/blackmirror.png"></a>
                         </div>
                     </div>
+
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/you.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/you.png"></a>
                         </div>
                     </div>
+
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/sexeducation.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/sexeducation.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/breakingbad.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/theumbrellaacademy.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/sweettooth.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/princesssarah.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/aliceinborderland.png"></a>
                         </div>
                     </div>
 
@@ -385,95 +524,95 @@
                     </div>
                 </a>
                 <a href="#">
-                    <p class="absolute font-semibold mx-2 my-5 z-30">Action</p>
+                    <p class="absolute font-semibold mx-2 my-5 z-30">Anime</p>
                     <div class="relative">
-                        <div class="absolute w-48 h-full bg-gradient-to-r from-orange-600 hover:opacity-50 rounded"></div>
-                        <img src="./assets/img/genre/action.png" alt="Action" class="rounded"/>
+                        <div class="absolute w-48 h-full bg-gradient-to-r from-pink-600 hover:opacity-50 rounded"></div>
+                        <img src="./assets/img/genre/anime.png" alt="Anime" class="rounded"/>
                     </div>
                 </a>
                 <a href="#">
-                    <p class="absolute font-semibold mx-2 my-5 z-30">Action</p>
+                    <p class="absolute font-semibold mx-2 my-5 z-30">Children</p>
                     <div class="relative">
-                        <div class="absolute w-48 h-full bg-gradient-to-r from-orange-600 hover:opacity-50 rounded"></div>
-                        <img src="./assets/img/genre/action.png" alt="Action" class="rounded"/>
+                        <div class="absolute w-48 h-full bg-gradient-to-r from-indigo-600 hover:opacity-50 rounded"></div>
+                        <img src="./assets/img/genre/children.png" alt="Children" class="rounded"/>
                     </div>
                 </a>
                 <a href="#">
-                    <p class="absolute font-semibold mx-2 my-5 z-30">Action</p>
+                    <p class="absolute font-semibold mx-2 my-5 z-30">Comedy</p>
                     <div class="relative">
-                        <div class="absolute w-48 h-full bg-gradient-to-r from-orange-600 hover:opacity-50 rounded"></div>
-                        <img src="./assets/img/genre/action.png" alt="Action" class="rounded"/>
+                        <div class="absolute w-48 h-full bg-gradient-to-r from-yellow-600 hover:opacity-50 rounded"></div>
+                        <img src="./assets/img/genre/comedy.png" alt="Comedy" class="rounded"/>
                     </div>
                 </a>
                 <a href="#">
-                    <p class="absolute font-semibold mx-2 my-5 z-30">Action</p>
+                    <p class="absolute font-semibold mx-2 my-5 z-30">Docuseries</p>
                     <div class="relative">
-                        <div class="absolute w-48 h-full bg-gradient-to-r from-orange-600 hover:opacity-50 rounded"></div>
-                        <img src="./assets/img/genre/action.png" alt="Action" class="rounded"/>
+                        <div class="absolute w-48 h-full bg-gradient-to-r from-green-600 hover:opacity-50 rounded"></div>
+                        <img src="./assets/img/genre/docuseries.png" alt="Docuseries" class="rounded"/>
                     </div>
                 </a>
                 <a href="#">
-                    <p class="absolute font-semibold mx-2 my-5 z-30">Action</p>
+                    <p class="absolute font-semibold mx-2 my-5 z-30">Drama</p>
                     <div class="relative">
-                        <div class="absolute w-48 h-full bg-gradient-to-r from-orange-600 hover:opacity-50 rounded"></div>
-                        <img src="./assets/img/genre/action.png" alt="Action" class="rounded"/>
+                        <div class="absolute w-48 h-full bg-gradient-to-r from-pink-600 hover:opacity-50 rounded"></div>
+                        <img src="./assets/img/genre/drama.png" alt="Drama" class="rounded"/>
                     </div>
                 </a>
                 <a href="#">
-                    <p class="absolute font-semibold mx-2 my-5 z-30">Action</p>
+                    <p class="absolute font-semibold mx-2 my-5 z-30">Fantasy</p>
                     <div class="relative">
-                        <div class="absolute w-48 h-full bg-gradient-to-r from-orange-600 hover:opacity-50 rounded"></div>
-                        <img src="./assets/img/genre/action.png" alt="Action" class="rounded"/>
+                        <div class="absolute w-48 h-full bg-gradient-to-r from-red-600 hover:opacity-50 rounded"></div>
+                        <img src="./assets/img/genre/fantasy.png" alt="Fantasy" class="rounded"/>
                     </div>
                 </a>
 
                 <a href="#">
-                    <p class="absolute font-semibold mx-2 my-5 z-30">Action</p>
+                    <p class="absolute font-semibold mx-2 my-5 z-30">French</p>
                     <div class="relative">
-                        <div class="absolute w-48 h-full bg-gradient-to-r from-orange-600 hover:opacity-50 rounded"></div>
-                        <img src="./assets/img/genre/action.png" alt="Action" class="rounded"/>
+                        <div class="absolute w-48 h-full bg-gradient-to-r from-blue-600 hover:opacity-50 rounded"></div>
+                        <img src="./assets/img/genre/french.png" alt="French" class="rounded"/>
                     </div>
                 </a>
                 <a href="#">
-                    <p class="absolute font-semibold mx-2 my-5 z-30">Action</p>
+                    <p class="absolute font-semibold mx-2 my-5 z-30">Horror</p>
                     <div class="relative">
-                        <div class="absolute w-48 h-full bg-gradient-to-r from-orange-600 hover:opacity-50 rounded"></div>
-                        <img src="./assets/img/genre/action.png" alt="Action" class="rounded"/>
+                        <div class="absolute w-48 h-full bg-gradient-to-r from-violet-600 hover:opacity-50 rounded"></div>
+                        <img src="./assets/img/genre/horror.png" alt="Horror" class="rounded"/>
                     </div>
                 </a>
                 <a href="#">
-                    <p class="absolute font-semibold mx-2 my-5 z-30">Action</p>
+                    <p class="absolute font-semibold mx-2 my-5 z-30">International</p>
                     <div class="relative">
-                        <div class="absolute w-48 h-full bg-gradient-to-r from-orange-600 hover:opacity-50 rounded"></div>
-                        <img src="./assets/img/genre/action.png" alt="Action" class="rounded"/>
+                        <div class="absolute w-48 h-full bg-gradient-to-r from-lime-600 hover:opacity-50 rounded"></div>
+                        <img src="./assets/img/genre/international.png" alt="International" class="rounded"/>
                     </div>
                 </a>
                 <a href="#">
-                    <p class="absolute font-semibold mx-2 my-5 z-30">Action</p>
+                    <p class="absolute font-semibold mx-2 my-5 z-30">Reality</p>
                     <div class="relative">
-                        <div class="absolute w-48 h-full bg-gradient-to-r from-orange-600 hover:opacity-50 rounded"></div>
-                        <img src="./assets/img/genre/action.png" alt="Action" class="rounded"/>
+                        <div class="absolute w-48 h-full bg-gradient-to-r from-pink-600 hover:opacity-50 rounded"></div>
+                        <img src="./assets/img/genre/reality.png" alt="Reality" class="rounded"/>
                     </div>
                 </a>
                 <a href="#">
-                    <p class="absolute font-semibold mx-2 my-5 z-30">Action</p>
+                    <p class="absolute font-semibold mx-2 my-5 z-30">Romance</p>
                     <div class="relative">
-                        <div class="absolute w-48 h-full bg-gradient-to-r from-orange-600 hover:opacity-50 rounded"></div>
-                        <img src="./assets/img/genre/action.png" alt="Action" class="rounded"/>
+                        <div class="absolute w-48 h-full bg-gradient-to-r from-amber-600 hover:opacity-50 rounded"></div>
+                        <img src="./assets/img/genre/romance.png" alt="Romance" class="rounded"/>
                     </div>
                 </a>
                 <a href="#">
-                    <p class="absolute font-semibold mx-2 my-5 z-30">Action</p>
+                    <p class="absolute font-semibold mx-2 my-5 z-30">Sci-Fi</p>
                     <div class="relative">
-                        <div class="absolute w-48 h-full bg-gradient-to-r from-orange-600 hover:opacity-50 rounded"></div>
-                        <img src="./assets/img/genre/action.png" alt="Action" class="rounded"/>
+                        <div class="absolute w-48 h-full bg-gradient-to-r from-cyan-600 hover:opacity-50 rounded"></div>
+                        <img src="./assets/img/genre/sci-fi.png" alt="Sci-Fi" class="rounded"/>
                     </div>
                 </a>
                 <a href="#">
-                    <p class="absolute font-semibold mx-2 my-5 z-30">Action</p>
+                    <p class="absolute font-semibold mx-2 my-5 z-30">Thriller</p>
                     <div class="relative">
-                        <div class="absolute w-48 h-full bg-gradient-to-r from-orange-600 hover:opacity-50 rounded"></div>
-                        <img src="./assets/img/genre/action.png" alt="Action" class="rounded"/>
+                        <div class="absolute w-48 h-full bg-gradient-to-r from-purple-600 hover:opacity-50 rounded"></div>
+                        <img src="./assets/img/genre/thriller.png" alt="Thriller" class="rounded"/>
                     </div>
                 </a>
  
@@ -488,35 +627,82 @@
 
             <!-- 1st step : overflow hidden -->
             <!-- 2nd step : overflow scroll -->
-            <section class="overflow-x-hidden overflow-x-scroll mb-12">
+            <section class="carousel5 overflow-x-hidden overflow-x-scroll scroll-smooth mb-12" onmouseover="showArrow('.leftArrow5' , '.rightArrow5','.carousel5')" onmouseout="hideArrow('.leftArrow5' , '.rightArrow5','.carousel5')">
 
                 
 
                 <div class="flex space-x-2">
 
+                    <!-- ------------------- arrow left + right ------------------- -->
+                    <!-- arrow left -->
+                    <div class="leftArrow5 hidden absolute left-0 z-30 cursor-pointer" onClick="leftScroll('.carousel5', '.leftArrow5')">
+                        <div class="absolute left-0 px-20 py-64 bg-gradient-to-r from-black opacity-60"></div>
+                        <button class="relative p-4 h-96 ml-4 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-left"></i></font></button>
+                    </div>
+                    <!-- arrow right -->
+                    <div class="rightArrow5 hidden absolute right-0 z-30 cursor-pointer" onClick="rightScroll('.carousel5', '.rightArrow5')">
+                        <div class="absolute right-0 px-20 py-64 bg-gradient-to-l from-black opacity-60"></div>
+                        <button class="relative p-4 h-96 mr-2 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-right"></i></font></button>
+                    </div>
+
+
                     <div class="relative">
                         <div class="w-64 ml-16">
-                            <a href="#"><img src="./assets/img/original/blackmirror.png" class="rounded w-64"/></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/original/blackmirror.png"></a>
                         </div>
                     </div>
-                    <div class="relative">
-                        <div class="w-64 ">
-                            <a href="#"><img src="./assets/img/original/lupin.png" class="rounded w-64"/></a>
-                        </div>
-                    </div>
+
                     <div class="relative">
                         <div class="w-64">
-                            <a href="#"><img src="./assets/img/original/3_.png" class="rounded w-64"/></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/original/lupin.png"></a>
                         </div>
                     </div>
+
                     <div class="relative">
                         <div class="w-64">
-                            <a href="#"><img src="./assets/img/original/enolaholmes.png" class="rounded w-64"/></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/original/3_.png"></a>
                         </div>
                     </div>
+
                     <div class="relative">
                         <div class="w-64">
-                            <a href="#"><img src="./assets/img/original/thewitcher.png" class="rounded w-64"/></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/original/enolaholmes.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-64">
+                            <a href="#"><img class="rounded w-64" src="./assets/img/original/thewitcher.png"></a>
+                        </div>
+                    </div>
+            
+                    <div class="relative">
+                        <div class="w-64">
+                            <a href="#"><img class="rounded w-64" src="./assets/img/original/thequeensgambit.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-64">
+                            <a href="#"><img class="rounded w-64" src="./assets/img/original/13reasonswhy.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-64">
+                            <a href="#"><img class="rounded w-64" src="./assets/img/original/annewithane.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-64">
+                            <a href="#"><img class="rounded w-64" src="./assets/img/original/bridgerton.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="w-64">
+                            <a href="#"><img class="rounded w-64" src="./assets/img/original/aliceinborderland.png"></a>
                         </div>
                     </div>
 
@@ -531,39 +717,90 @@
 
             <!-- 1st step : overflow hidden -->
             <!-- 2nd step : overflow scroll -->
-            <section class="overflow-x-hidden overflow-x-scroll mb-12">
+            <section class="carousel6 overflow-x-hidden overflow-x-scroll scroll-smooth mb-12" onmouseover="showArrow('.leftArrow6' , '.rightArrow6','.carousel6')" onmouseout="hideArrow('.leftArrow6' , '.rightArrow6','.carousel6')">
 
             
                 <div class="flex space-x-2">
 
+                    <!-- ------------------- arrow left + right ------------------- -->
+                    <!-- arrow left -->
+                    <div class="leftArrow6 hidden absolute left-0 z-30 cursor-pointer" onClick="leftScroll('.carousel6', '.leftArrow6')">
+                        <div class="absolute left-0 px-20 py-28 bg-gradient-to-r from-black opacity-60"></div>
+                        <button class="relative p-4 h-48 ml-4 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-left"></i></font></button>
+                    </div>
+                    <!-- arrow right -->
+                    <div class="rightArrow6 hidden absolute right-0 z-30 cursor-pointer" onClick="rightScroll('.carousel6', '.rightArrow6')">
+                        <div class="absolute right-0 px-20 py-28 bg-gradient-to-l from-black opacity-60"></div>
+                        <button class="relative p-4 h-48 mr-2 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-right"></i></font></button>
+                    </div>
+
                     <div class="relative">
                         <div class="flex w-64 ml-16">
-                            <a href="#"><img src="./assets/img/top/top_1.png" class=""/></a>
-                            <a href="#"><img src="./assets/img/top/inventinganna.png" class="rounded w-64"/></a>
+                            <a href="#"><img src="./assets/img/top/top_1.png" alt="" class=""></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/top/inventinganna.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="flex w-64">
-                            <a href="#"><img src="./assets/img/top/top_2.png" class=""/></a>
-                            <a href="#"><img src="./assets/img/top/oneofusislying.png" class="rounded w-64"/></a>
+                            <a href="#"><img src="./assets/img/top/top_2.png" alt="" class=""></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/top/oneofusislying.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="flex w-64">
-                            <a href="#"><img src="./assets/img/top/top_3.png" class=""/></a>
-                            <a href="#"><img src="./assets/img/top/texaschainsawmassacre.png" class="rounded w-64"/></a>
+                            <a href="#"><img src="./assets/img/top/top_3.png" alt="" class=""></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/top/texaschainsawmassacre.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="flex w-64">
-                            <a href="#"><img src="./assets/img/top/top_4.png" class=""/></a>
-                            <a href="#"><img src="./assets/img/top/raisingdion.png" class="rounded w-64"/></a>
+                            <a href="#"><img src="./assets/img/top/top_4.png" alt="" class=""></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/top/raisingdion.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="flex w-64">
-                            <a href="#"><img src="./assets/img/top/top_5.png" class=""/></a>
-                            <a href="#"><img src="./assets/img/top/toyboy.png" class="rounded w-64"/></a>
+                            <a href="#"><img src="./assets/img/top/top_5.png" alt="" class=""></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/top/toyboy.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="flex w-64">
+                            <a href="#"><img src="./assets/img/top/top_6.png" alt="" class=""></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/top/sweetmagnolias.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="flex w-64">
+                            <a href="#"><img src="./assets/img/top/top_7.png" alt="" class=""></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/top/astrologicalguide.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="flex w-64">
+                            <a href="#"><img src="./assets/img/top/top_8.png" alt="" class=""></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/top/outsidethewire.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="flex w-64">
+                            <a href="#"><img src="./assets/img/top/top_9.png" alt="" class=""></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/top/allofusaredead.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="flex w-64">
+                            <a href="#"><img src="./assets/img/top/top_10.png" alt="" class=""></a>
+                            <a href="#"><img class="rounded w-64" src="./assets/img/top/theparisianagency.png"></a>
                         </div>
                     </div>
 
@@ -572,38 +809,84 @@
 
             </section>
 
-            <!-- Release Now -->
-            <p class="py-2 font-semibold text-xl ml-16">Release Now</p>
+            <!-- New Release -->
+            <p class="py-2 font-semibold text-xl ml-16">New Release</p>
 
             <!-- 1st step : overflow hidden -->
             <!-- 2nd step : overflow scroll -->
-            <section class="overflow-x-hidden overflow-x-scroll mb-12">
+            <section class="carousel7 overflow-x-hidden overflow-x-scroll scroll-smooth mb-12" onmouseover="showArrow('.leftArrow7' , '.rightArrow7','.carousel7')" onmouseout="hideArrow('.leftArrow7' , '.rightArrow7','.carousel7')">
 
                 <div class="flex space-x-2">
 
+                    <!-- ------------------- arrow left + right ------------------- -->
+                    <!-- arrow left -->
+                    <div class="leftArrow7 hidden absolute left-0 z-30 cursor-pointer" onClick="leftScroll('.carousel7', '.leftArrow7')">
+                        <div class="absolute left-0 px-20 py-20 bg-gradient-to-r from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 ml-4 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-left"></i></font></button>
+                    </div>
+                    <!-- arrow right -->
+                    <div class="rightArrow7 hidden absolute right-0 z-30 cursor-pointer" onClick="rightScroll('.carousel7', '.rightArrow7')">
+                        <div class="absolute right-0 px-20 py-20 bg-gradient-to-l from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 mr-2 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-right"></i></font></button>
+                    </div>
+
                     <div class="relative">
                         <div class="w-64 h-36 ml-16">
-                            <a href="#"><img src="./assets/img/movie/insidetheworldstoughestprisons.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/insidetheworldstoughestprisons.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/iamgeorgina.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/iamgeorgina.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/neverhaveiever.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/neverhaveiever.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/inventinganna.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/inventinganna.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/oneofusislying.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/oneofusislying.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/dynasty.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/glow.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/elite.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/insidejob.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img class="rounded w-64 h-36" src="./assets/img/movie/bangkokbreaking.png"></a>
                         </div>
                     </div>
 
@@ -616,33 +899,79 @@
 
             <!-- 1st step : overflow hidden -->
             <!-- 2nd step : overflow scroll -->
-            <section class="overflow-x-hidden overflow-x-scroll mb-12">
+            <section class="carousel8 overflow-x-hidden overflow-x-scroll scroll-smooth mb-12" onmouseover="showArrow('.leftArrow8' , '.rightArrow8','.carousel8')" onmouseout="hideArrow('.leftArrow8' , '.rightArrow8','.carousel8')">
 
                 <div class="flex space-x-2">
 
+                    <!-- ------------------- arrow left + right ------------------- -->
+                    <!-- arrow left -->
+                    <div class="leftArrow8 hidden absolute left-0 z-30 cursor-pointer" onClick="leftScroll('.carousel8', '.leftArrow8')">
+                        <div class="absolute left-0 px-20 py-20 bg-gradient-to-r from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 ml-4 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-left"></i></font></button>
+                    </div>
+                    <!-- arrow right -->
+                    <div class="rightArrow8 hidden absolute right-0 z-30 cursor-pointer" onClick="rightScroll('.carousel8', '.rightArrow8')">
+                        <div class="absolute right-0 px-20 py-20 bg-gradient-to-l from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 mr-2 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-right"></i></font></button>
+                    </div>
+
                     <div class="relative">
                         <div class="w-64 h-36 ml-16">
-                            <a href="#"><img src="./assets/img/movie/therain.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="international1" class="rounded w-64 h-36" src="./assets/img/movie/therain.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/dark.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="international2" class="rounded w-64 h-36" src="./assets/img/movie/dark.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/girlfromnowhere.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="international3" class="rounded w-64 h-36" src="./assets/img/movie/girlfromnowhere.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/alrawabischoolforgirls.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="international4" class="rounded w-64 h-36" src="./assets/img/movie/alrawabischoolforgirls.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/blackpink.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="international5" class="rounded w-64 h-36" src="./assets/img/movie/blackpink.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="international6" class="rounded w-64 h-36" src="./assets/img/movie/caliphate.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="international7" class="rounded w-64 h-36" src="./assets/img/movie/unorthodox.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="international8" class="rounded w-64 h-36" src="./assets/img/movie/bridgerton.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="international9" class="rounded w-64 h-36" src="./assets/img/movie/hoteldelluna.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="international10" class="rounded w-64 h-36" src="./assets/img/movie/annewithane.png"></a>
                         </div>
                     </div>
 
@@ -655,38 +984,84 @@
 
             <!-- 1st step : overflow hidden -->
             <!-- 2nd step : overflow scroll -->
-            <section class="overflow-x-hidden overflow-x-scroll mb-12">
+            <section class="carousel9 overflow-x-hidden overflow-x-scroll scroll-smooth mb-12" onmouseover="showArrow('.leftArrow9' , '.rightArrow9','.carousel9')" onmouseout="hideArrow('.leftArrow9' , '.rightArrow9','.carousel9')">
 
                 
 
                 <div class="flex space-x-2">
 
-                    <div class="relative">
-                        <div class="w-64 h-36 ml-16">
-                            <a href="#"><img src="./assets/img/movie/lovedeathrobot.png" class="rounded w-64 h-36"/></a>
-                        </div>
+                    <!-- ------------------- arrow left + right ------------------- -->
+                    <!-- arrow left -->
+                    <div class="leftArrow9 hidden absolute left-0 z-30 cursor-pointer" onClick="leftScroll('.carousel9', '.leftArrow9')">
+                        <div class="absolute left-0 px-20 py-20 bg-gradient-to-r from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 ml-4 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-left"></i></font></button>
                     </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/narcosmexico.png" class="rounded w-64 h-36"/></a>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/elchapo.png" class="rounded w-64 h-36"/></a>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/tribesofeuropa.png" class="rounded w-64 h-36"/></a>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/attackontitan.png" class="rounded w-64 h-36"/></a>
-                        </div>
+                    <!-- arrow right -->
+                    <div class="rightArrow9 hidden absolute right-0 z-30 cursor-pointer" onClick="rightScroll('.carousel9', '.rightArrow9')">
+                        <div class="absolute right-0 px-20 py-20 bg-gradient-to-l from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 mr-2 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-right"></i></font></button>
                     </div>
 
+                    <div class="relative">
+                        <div class="w-64 h-36 ml-16">
+                            <a href="#"><img id="action1" class="rounded w-64 h-36" src="./assets/img/movie/lovedeathrobot.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="action2" class="rounded w-64 h-36" src="./assets/img/movie/narcosmexico.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="action3" class="rounded w-64 h-36" src="./assets/img/movie/elchapo.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="action4" class="rounded w-64 h-36" src="./assets/img/movie/tribesofeuropa.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="action5" class="rounded w-64 h-36" src="./assets/img/movie/attackontitan.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="action6" class="rounded w-64 h-36" src="./assets/img/movie/thewalkingdead.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="action7" class="rounded w-64 h-36" src="./assets/img/movie/rednotice.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="action8" class="rounded w-64 h-36" src="./assets/img/movie/6underground.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="action9" class="rounded w-64 h-36" src="./assets/img/movie/mosul.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="action10" class="rounded w-64 h-36" src="./assets/img/movie/theoldguard.png"></a>
+                        </div>
+                    </div>
+            
                 </div>
 
             </section>
@@ -696,34 +1071,80 @@
 
             <!-- 1st step : overflow hidden -->
             <!-- 2nd step : overflow scroll -->
-            <section class="overflow-x-hidden overflow-x-scroll mb-12">
+            <section class="carousel10 overflow-x-hidden overflow-x-scroll scroll-smooth mb-12" onmouseover="showArrow('.leftArrow10' , '.rightArrow10','.carousel10')" onmouseout="hideArrow('.leftArrow10' , '.rightArrow10','.carousel10')">
 
                 
                 <div class="flex space-x-2">
 
+                    <!-- ------------------- arrow left + right ------------------- -->
+                    <!-- arrow left -->
+                    <div class="leftArrow10 hidden absolute left-0 z-30 cursor-pointer" onClick="leftScroll('.carousel10', '.leftArrow10')">
+                        <div class="absolute left-0 px-20 py-20 bg-gradient-to-r from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 ml-4 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-left"></i></font></button>
+                    </div>
+                    <!-- arrow right -->
+                    <div class="rightArrow10 hidden absolute right-0 z-30 cursor-pointer" onClick="rightScroll('.carousel10', '.rightArrow10')">
+                        <div class="absolute right-0 px-20 py-20 bg-gradient-to-l from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 mr-2 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-right"></i></font></button>
+                    </div>
+
                     <div class="relative">
                         <div class="w-64 h-36 ml-16">
-                            <a href="#"><img src="./assets/img/movie/thegoodplace.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="comedy1" class="rounded w-64 h-36" src="./assets/img/movie/thegoodplace.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/emilyinparis.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="comedy2" class="rounded w-64 h-36" src="./assets/img/movie/emilyinparis.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/ourbelovedsummer.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="comedy3" class="rounded w-64 h-36" src="./assets/img/movie/ourbelovedsummer.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/atypical.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="comedy4" class="rounded w-64 h-36" src="./assets/img/movie/atypical.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/cobrakai.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="comedy5" class="rounded w-64 h-36" src="./assets/img/movie/cobrakai.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="comedy6" class="rounded w-64 h-36" src="./assets/img/movie/insatiable.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="comedy7" class="rounded w-64 h-36" src="./assets/img/movie/bojackhorseman.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="comedy8" class="rounded w-64 h-36" src="./assets/img/movie/backto15.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="comedy9" class="rounded w-64 h-36" src="./assets/img/movie/shewaspretty.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="comedy10" class="rounded w-64 h-36" src="./assets/img/movie/disenchantment.png"></a>
                         </div>
                     </div>
 
@@ -736,34 +1157,80 @@
 
             <!-- 1st step : overflow hidden -->
             <!-- 2nd step : overflow scroll -->
-            <section class="overflow-x-hidden overflow-x-scroll mb-12">
+            <section class="carousel11 overflow-x-hidden overflow-x-scroll scroll-smooth mb-12" onmouseover="showArrow('.leftArrow11' , '.rightArrow11','.carousel11')" onmouseout="hideArrow('.leftArrow11' , '.rightArrow11','.carousel11')">
 
                 
                 <div class="flex space-x-2">
 
+                    <!-- ------------------- arrow left + right ------------------- -->
+                    <!-- arrow left -->
+                    <div class="leftArrow11 hidden absolute left-0 z-30 cursor-pointer" onClick="leftScroll('.carousel11', '.leftArrow11')">
+                        <div class="absolute left-0 px-20 py-20 bg-gradient-to-r from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 ml-4 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-left"></i></font></button>
+                    </div>
+                    <!-- arrow right -->
+                    <div class="rightArrow11 hidden absolute right-0 z-30 cursor-pointer" onClick="rightScroll('.carousel11', '.rightArrow11')">
+                        <div class="absolute right-0 px-20 py-20 bg-gradient-to-l from-black opacity-60"></div>
+                        <button class="relative p-4 h-36 mr-2 focus:outline-none cursor-pointer"><font size="8"><i class="fas fa-angle-right"></i></font></button>
+                    </div>
+
                     <div class="relative">
                         <div class="w-64 h-36 ml-16">
-                            <a href="#"><img src="./assets/img/movie/japansinks2020.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="anime1" class="rounded w-64 h-36" src="./assets/img/movie/japansinks2020.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/blueperiod.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="anime2" class="rounded w-64 h-36" src="./assets/img/movie/blueperiod.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/saikik.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="anime3" class="rounded w-64 h-36" src="./assets/img/movie/saikik.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/beastars.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="anime4" class="rounded w-64 h-36" src="./assets/img/movie/beastars.png"></a>
                         </div>
                     </div>
+    
                     <div class="relative">
                         <div class="w-64 h-36">
-                            <a href="#"><img src="./assets/img/movie/fullmetalalchemist.png" class="rounded w-64 h-36"/></a>
+                            <a href="#"><img id="anime5" class="rounded w-64 h-36" src="./assets/img/movie/fullmetalalchemist.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="anime6" class="rounded w-64" src="./assets/img/movie/onepunchman.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="anime7" class="rounded w-64 h-36" src="./assets/img/movie/naruto.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="anime8" class="rounded w-64 h-36" src="./assets/img/movie/awhiskeraway.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="anime9" class="rounded w-64 h-36" src="./assets/img/movie/fromuponpoppyhill.png"></a>
+                        </div>
+                    </div>
+    
+                    <div class="relative">
+                        <div class="w-64 h-36">
+                            <a href="#"><img id="anime10" class="rounded w-64 h-36" src="./assets/img/movie/thewayofthehousehusband.png"></a>
                         </div>
                     </div>
 
@@ -812,7 +1279,8 @@
 
         </footer>
 
-
+        <script src="./assets/js/main.js"></script>
+        
     </body>
 
 </html>
